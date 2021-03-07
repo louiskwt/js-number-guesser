@@ -28,13 +28,11 @@ maxNumUI.textContent = max;
 // Listen for guess
 guessBtnUI.addEventListener('click', function() {
     let guess = parseInt(guessInputUI.value);
-    console.log(guess);
+    console.log(isNaN(guess));
     // validate input
     if(isNaN(guess) || guess < min || guess > max) {
         setMessage(`Please enter a number between ${min} and ${max}`, 'red');
-    }
-    // Check if the guess is correct
-    if(guess === winningNum) {
+    } else if(guess === winningNum) {
         // Winning case
         gameOver(true, `${winningNum} is correct! You win!`);
     } else {
